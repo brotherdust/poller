@@ -32,7 +32,7 @@ catch (Exception $e)
 $REDIS_BACKEND = getenv('REDIS_BACKEND');
 if(!empty($REDIS_BACKEND)) {
     Resque::setBackend($REDIS_BACKEND);
-) else {
+} else {
     Resque::setBackend('localhost:6379');
 }
 
