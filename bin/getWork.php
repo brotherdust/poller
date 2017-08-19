@@ -29,7 +29,12 @@ catch (Exception $e)
     return;
 }
 
-Resque::setBackend('localhost:6379');
+$REDIS_BACKEND = getenv('REDIS_BACKEND');
+if(!empty($REDIS_BACKEND)) {
+    Resque::setBackend($REDIS_BACKEND);
+} elseif {
+    Resque::setBackend('localhost:6379');
+}
 
 try {
     $now = Carbon::now("UTC");
