@@ -51,20 +51,20 @@ catch (RuntimeException $e)
 }
 $climate->lightGreen("OK!");
 
-$climate->white("Configuring queue listeners... ");
-try {
-    execCommand("/bin/cp conf/monitrc /etc/monit/");
-    execCommand("/bin/cp " . dirname(__FILE__) . "/conf/default /etc/monit/conf.d/");
-    execCommand("/usr/sbin/service monit reload");
-    sleep(3);
-    execCommand("/usr/bin/monit start defaultQueue");
-}
-catch (RuntimeException $e)
-{
-    $climate->shout("FAILED!");
-    return;
-}
-$climate->lightGreen("OK!");
+// $climate->white("Configuring queue listeners... ");
+// try {
+//     execCommand("/bin/cp conf/monitrc /etc/monit/");
+//     execCommand("/bin/cp " . dirname(__FILE__) . "/conf/default /etc/monit/conf.d/");
+//     execCommand("/usr/sbin/service monit reload");
+//     sleep(3);
+//     execCommand("/usr/bin/monit start defaultQueue");
+// }
+// catch (RuntimeException $e)
+// {
+//     $climate->shout("FAILED!");
+//     return;
+// }
+// $climate->lightGreen("OK!");
 
 $climate->white("Configuring SNMP MIBs... ");
 try {
