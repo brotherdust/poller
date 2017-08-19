@@ -80,7 +80,7 @@ $climate->lightGreen("OK!");
 $climate->white("Setting up log file... ");
 try {
     execCommand("/usr/bin/touch /var/log/sonar_poller.log");
-    execCommand("/bin/chown sonarpoller:sonarpoller /var/log/sonar_poller.log");
+    // execCommand("/bin/chown sonarpoller:sonarpoller /var/log/sonar_poller.log");
     execCommand("/bin/cp conf/sonarpoller /etc/logrotate.d/");
 }
 catch (RuntimeException $e)
