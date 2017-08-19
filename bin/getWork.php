@@ -68,6 +68,10 @@ function getWorkFromSonar():stdClass
     $logger = new SonarLogger();
 
     try {
+        if (getenv('DEBUG') == "true")
+        {
+            $logger->log("Sonar URI: {$e->getenv("SONAR_URI")}",Logger::ERROR);
+        }
         $result = $client->post(getenv("SONAR_URI") . "/api/poller", [
             'headers' => [
                 'Content-Type' => 'application/json; charset=UTF8',
