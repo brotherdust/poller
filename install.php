@@ -9,19 +9,19 @@ if (trim(shell_exec("whoami")) != "root")
     return;
 }
 
-$climate->white("Creating sonarpoller user... ");
-try {
-    if (!file_exists("/home/sonarpoller"))
-    {
-        execCommand("/usr/sbin/useradd -m -d /home/sonarpoller sonarpoller");
-    }
-}
-catch (RuntimeException $e)
-{
-    $climate->shout("FAILED!");
-    return;
-}
-$climate->lightGreen("OK!");
+// $climate->white("Creating sonarpoller user... ");
+// try {
+//     if (!file_exists("/home/sonarpoller"))
+//     {
+//         execCommand("/usr/sbin/useradd -m -d /home/sonarpoller sonarpoller");
+//     }
+// }
+// catch (RuntimeException $e)
+// {
+//     $climate->shout("FAILED!");
+//     return;
+// }
+// $climate->lightGreen("OK!");
 
 $climate->white("Installing to /opt/poller... ");
 try {
@@ -30,7 +30,7 @@ try {
         execCommand("/bin/mkdir /opt/poller");
     }
     execCommand("/bin/cp -R " . dirname(__FILE__) ."/. /opt/poller/");
-    execCommand("/bin/chown -R sonarpoller:sonarpoller /opt/poller/.");
+    // execCommand("/bin/chown -R sonarpoller:sonarpoller /opt/poller/.");
 }
 catch (RuntimeException $e)
 {
